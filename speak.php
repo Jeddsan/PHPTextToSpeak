@@ -43,10 +43,14 @@ foreach ($request_array as $current_request) {
     }else if($character=="o"&&$cwa[$i+1]=="u"){ //Detect "ou"
       echo "_uu";
       $i=$i+1;
+    }else if($character=="p"&&$cwa[$i+1]=="f"){ //Detect "pf"
+      echo file_get_contents("audio/de_CH/pf.mp3");
+      $i=$i+1;
     }else{ //All other normal characters
       if(($i+1)==count($cwa)){ //Last character in word
         switch($character){
           case "a":
+            echo file_get_contents("audio/de_CH/a.mp3");
             break;
           case "b":
             echo file_get_contents('audio/de_CH/b.mp3');
@@ -71,6 +75,7 @@ foreach ($request_array as $current_request) {
           case "k":
             break;
           case "l":
+            echo file_get_contents("audio/de_CH/l_down.mp3");
             break;
           case "m":
             break;
@@ -105,6 +110,7 @@ foreach ($request_array as $current_request) {
       }else{
         switch($character){
           case "a":
+            echo file_get_contents("audio/de_CH/a.mp3");
             break;
           case "b":
             echo file_get_contents('audio/de_CH/b.mp3');
@@ -123,6 +129,7 @@ foreach ($request_array as $current_request) {
           case "h":
             break;
           case "i":
+            echo file_get_contents('audio/de_CH/i.mp3');
             break;
           case "j":
             break;
@@ -131,6 +138,7 @@ foreach ($request_array as $current_request) {
           case "l":
             break;
           case "m":
+            echo file_get_contents('audio/de_CH/m.mp3');
             break;
           case "n":
             echo file_get_contents('audio/de_CH/n.mp3');
@@ -144,6 +152,7 @@ foreach ($request_array as $current_request) {
           case "r":
             break;
           case "s":
+            echo file_get_contents('audio/de_CH/s.mp3');
             break;
           case "t":
             break;
