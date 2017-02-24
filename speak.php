@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset=ISO-8859-1');
+header('Content-Type: audio/mpeg; charset=ISO-8859-1');
 error_reporting(E_ALL ^ E_NOTICE);
 $request = strtolower(trim(utf8_decode($_GET["text"])));
 $request_array = explode(" ",$request);
@@ -13,7 +13,7 @@ foreach ($request_array as $current_request) {
   for($i=0;$i<count($cwa);$i++) {
     $character = $cwa[$i];
     if($character=="s"&&$cwa[$i+1]=="c"&&$cwa[$i+2]=="h"&&$cwa[$i-1]!="s"){ //Detect "sch"
-      echo "_sch";
+      echo file_get_contents('audio/de_CH/sch.mp3');
       $i=$i+2;
     }else if($character=="c"&&$cwa[$i+1]=="h"){ //Detect "ch"
       echo "_ch";
@@ -39,7 +39,7 @@ foreach ($request_array as $current_request) {
     }else if($character=="c"&&$cwa[$i+1]=="k"){ //Detect "ck"
       echo "_kk";
       $i=$i+1;
-    }else if($character=="o"&&$cwa[$i+1]=="u"){ //Detect "ck"
+    }else if($character=="o"&&$cwa[$i+1]=="u"){ //Detect "ou"
       echo "_uu";
       $i=$i+1;
     }else{ //All other normal characters
