@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: audio/mpeg; charset=ISO-8859-1');
+//header('Content-Type: application/json; charset=ISO-8859-1');
 error_reporting(E_ALL ^ E_NOTICE);
 $request = strtolower(trim(utf8_decode($_GET["text"])));
 $request_array = explode(" ",$request);
@@ -25,7 +26,7 @@ foreach ($request_array as $current_request) {
       echo "_scht";
       $i=$i+1;
     }else if($character=="e"&&$cwa[$i+1]=="i"){ //Detect "ei"
-      echo "_ei";
+      echo file_get_contents('audio/de_CH/ei.mp3');
       $i=$i+1;
     }else if($character=="e"&&$cwa[$i+1]=="u"){ //Detect "eu"
       echo "_eu";
@@ -43,6 +44,123 @@ foreach ($request_array as $current_request) {
       echo "_uu";
       $i=$i+1;
     }else{ //All other normal characters
+      if(($i+1)==count($cwa)){ //Last character in word
+        switch($character){
+          case "a":
+            break;
+          case "b":
+            echo file_get_contents('audio/de_CH/b.mp3');
+            break;
+          case "c":
+            break;
+          case "d":
+            break;
+          case "e":
+            echo file_get_contents('audio/de_CH/e_down.mp3');
+            break;
+          case "f":
+            break;
+          case "g":
+            break;
+          case "h":
+            break;
+          case "i":
+            break;
+          case "j":
+            break;
+          case "k":
+            break;
+          case "l":
+            break;
+          case "m":
+            break;
+          case "n":
+            echo file_get_contents('audio/de_CH/n_down.mp3');
+            break;
+          case "o":
+            break;
+          case "p":
+            break;
+          case "q":
+            break;
+          case "r":
+            break;
+          case "s":
+            break;
+          case "t":
+            break;
+          case "u":
+            break;
+          case "v":
+            break;
+          case "w":
+            break;
+          case "x":
+            break;
+          case "y":
+            break;
+          case "z":
+            break;
+        }
+      }else{
+        switch($character){
+          case "a":
+            break;
+          case "b":
+            echo file_get_contents('audio/de_CH/b.mp3');
+            break;
+          case "c":
+            break;
+          case "d":
+            break;
+          case "e":
+            echo file_get_contents('audio/de_CH/e.mp3');
+            break;
+          case "f":
+            break;
+          case "g":
+            break;
+          case "h":
+            break;
+          case "i":
+            break;
+          case "j":
+            break;
+          case "k":
+            break;
+          case "l":
+            break;
+          case "m":
+            break;
+          case "n":
+            echo file_get_contents('audio/de_CH/n.mp3');
+            break;
+          case "o":
+            break;
+          case "p":
+            break;
+          case "q":
+            break;
+          case "r":
+            break;
+          case "s":
+            break;
+          case "t":
+            break;
+          case "u":
+            break;
+          case "v":
+            break;
+          case "w":
+            break;
+          case "x":
+            break;
+          case "y":
+            break;
+          case "z":
+            break;
+        }
+      }
       echo "_$character";
     }
   }
